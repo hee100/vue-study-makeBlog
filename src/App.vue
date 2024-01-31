@@ -1,15 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Vuelog</span>
+  </div>
+</nav>
+<!-- <div v-for="(b, i) in blog" :key=i>
+  <List :b="blog[i]"/>
+</div> -->
+<List :b="blog[i]" v-for="(b, i) in blog" :key=i />
+
+<Room @openModal="checkModal = true; roomNum = $event" :oneRoom="oneRooms[i]"
+   v-for="(oneRoom, i) in oneRooms" :key="i"/>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import List from './components/List.vue'
+import blog from './assets/blog'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      blog : blog
+    }
+  },
   components: {
-    HelloWorld
+    List : List,
   }
 }
 </script>
