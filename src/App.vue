@@ -4,18 +4,13 @@
     <span class="navbar-brand mb-0 h1">Vuelog</span>
   </div>
 </nav>
-<!-- <div v-for="(b, i) in blog" :key=i>
-  <List :b="blog[i]"/>
-</div> -->
-<List :b="blog[i]" v-for="(b, i) in blog" :key=i />
 
-<Room @openModal="checkModal = true; roomNum = $event" :oneRoom="oneRooms[i]"
-   v-for="(oneRoom, i) in oneRooms" :key="i"/>
-
+<div class="mt-3">
+  <router-view :blog="blog"></router-view>
+</div>
 </template>
 
 <script>
-import List from './components/List.vue'
 import blog from './assets/blog'
 
 export default {
@@ -25,8 +20,8 @@ export default {
       blog : blog
     }
   },
-  components: {
-    List : List,
+  components: { 
+
   }
 }
 </script>
